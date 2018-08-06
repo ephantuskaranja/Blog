@@ -6,4 +6,8 @@ class Posts(models.Model):
     body=models.TextField(blank=True)
     created_at=models.DateField(default=datetime.now, blank=True)
 
-    
+    class Meta:
+        verbose_name_plural ='Posts'
+
+    def __str__(self):
+        return self.title
