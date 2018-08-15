@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from .models import Posts
-# Create your views here.
+
+import qrcode
+
+#Create your views here.
 def index(request):
     posts= Posts.objects.all()
     context={
@@ -18,3 +21,19 @@ def details(request, id):
     }
 
     return render(request, 'details.html', context)
+
+
+def qrcodes(request):
+    posts=Posts.objects.all()
+    context = {
+        "posts":posts
+        
+    }
+    
+
+        
+
+    return render(request, 'qrcode.html', context)
+
+    
+
